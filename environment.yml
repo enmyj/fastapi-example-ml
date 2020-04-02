@@ -1,0 +1,13 @@
+name: scipaper
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - fastapi
+  - gunicorn
+  - numpy
+  - pandas
+  - requests
+  - sqlalchemy
+  - sqlite
+  - uvicorn
