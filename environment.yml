@@ -5,8 +5,11 @@ channels:
 dependencies:
   - fastapi
   - gunicorn
-  - numpy
+  - ipython
+  - jupyter
+  - keyring
   - pandas
+  - python<3.8
   - requests
   - sqlalchemy
   - sqlite
