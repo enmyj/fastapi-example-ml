@@ -6,13 +6,13 @@ from sqlalchemy import create_engine
 
 
 # %% Globals
-eng = create_engine('sqlite:///./mtcars.sqlite')
-df = pd.read_sql('mtcars', eng)
+eng = create_engine('sqlite:///data/data.sqlite')
+df = pd.read_sql_table('mtcars', eng)
 app = FastAPI()
 
 
-# define mtcars fields and types
 class MtCars(BaseModel):
+    name: str
     mpg: float
     cyl: int
     disp: float
@@ -67,6 +67,7 @@ async def mtcars_get(
 async def mtcars_post(mtcar: MtCars):
     """ Append rows to mtcars.sqlite database:
 
+    name: Name of Car \n
     mpg: Miles/(US) gallon \n
     cyl: Number of cylinders \n
     disp: Displacement (cu.in.) \n

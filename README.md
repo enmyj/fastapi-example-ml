@@ -20,6 +20,8 @@ Note: you can also just look at file and install each package yourself into `bas
 
 In the wild, Rest APIs are often used to provide people with data from a database (withouth providing access to the actual database). Examples include weather APIs, sports APIs, USA Spending, etc.
 
+Rest APIs are also often used to allow people to embed access to their services into other applications. One such example is Strava (social fitness app): https://developers.strava.com/
+
 Another thing that's becoming popular is deploying ML models as Rest APIs. At ERI we typically deploy models by writing the inference results to a database with `RADR` or another BI tool pointed at it.   
 
 However, at larger companies, the ML team might create a model (e.g., marketing model) and a product team might incorporate this model into their product by hitting a Rest API for inference results. One made up example using the Instagram scrolling feed: the IG "feed" team might be sending a user's personal information at an internal Rest API and receiving back an advertisement to place into that user's feed.   
@@ -41,7 +43,7 @@ Access from Python:
 
 ## Building Rest APIs in Python
 
-On the cloud, one of the most popular solutions is `AWS Lambda` combined with `AWS API Gateway`. This combo is super cheap, fast, and automatically gives you goodies like load balancing. However, this approach is a bit harder to build/debug locally and it doesn't match up super well with how we usually build things.
+In the cloud, one of the most popular solutions is `AWS Lambda` combined with `AWS API Gateway`. This combo is super cheap, fast, and automatically gives you goodies like load balancing. However, this approach is a bit harder to build/debug locally and it doesn't match up super well with how we usually build things.
 
 Another approach is to use a package like `fastapi`: https://fastapi.tiangolo.com/. This package has tons of goodies, including: 1. awesome user documentation, 2. automatic `swagger` (rest api) page creation, and 3. more familiar development style 
 
@@ -85,4 +87,4 @@ docker build -t restapi .
 
 docker run --rm -it -p 80:8000 restapi
 ```
-Or you can use some fancy service like `AWS Fargate` to serve your Docker for you
+Or you can use some fancy service like `AWS Fargate` to manage your `docker` containers for you
