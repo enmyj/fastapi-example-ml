@@ -3,15 +3,17 @@ channels:
   - defaults
   - conda-forge
 dependencies:
+  - dill
   - fastapi
   - gunicorn
   - ipython
+  - joblib
   - jupyter
   - keyring
   - pandas
   - python<3.8
   - requests
-  - sklearn
+  - scikit-learn
   - sqlalchemy
   - sqlite
   - uvicorn
