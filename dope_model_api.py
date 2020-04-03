@@ -7,6 +7,9 @@ import json
 
 app = FastAPI()
 
+# load pickled files
+rfc = load('iris_rfc.joblib')
+
 
 # Define individual row classes
 class Iris(BaseModel):
@@ -23,15 +26,9 @@ class Irises(BaseModel):
 
 @app.post('/predict/', status_code=200)
 async def model_predict(irises: Irises):
-    # le = load('iris_le.joblib')
-    # pred = rfc.predict(row)
-    # return le.inverse_transform(pred)[0]
 
     # load row(s) passed into df
     row = pd.DataFrame(irises.dict()['data'])
-
-    # load pickled files
-    rfc = load('iris_rfc.joblib')
 
     # make prediction(s)
     return json.dumps(list(rfc.predict(row)))
