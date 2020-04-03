@@ -15,16 +15,15 @@ class Iris(BaseModel):
 
 @app.post('/predict/', status_code=200)
 async def model_predict(iris: Iris):
+    # le = load('iris_le.joblib')
+    # pred = rfc.predict(row)
+    # return le.inverse_transform(pred)[0]
 
     # load row passed into df
     row = pd.DataFrame([iris.dict()])
 
     # load pickled files
     rfc = load('iris_rfc.joblib')
-    le = load('iris_le.joblib')
 
     # make prediction
-    pred = rfc.predict(row)
-
-    # return string prediction
-    return le.inverse_transform(pred)[0]
+    return rfc.predict(row)[0]
