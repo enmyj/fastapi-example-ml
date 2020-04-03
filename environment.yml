@@ -5,7 +5,6 @@ channels:
 dependencies:
   - dill
   - fastapi
-  - gunicorn
   - ipython
   - joblib
   - jupyter
