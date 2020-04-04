@@ -6,9 +6,7 @@ import pandas as pd
 import json
 
 app = FastAPI()
-
-# load pickled files
-rfc = load('iris_rfc.joblib')
+rfc = load('iris_rfc.joblib')  # load pickled model
 
 
 # Define individual row classes
@@ -27,8 +25,8 @@ class Irises(BaseModel):
 @app.post('/predict/', status_code=200)
 async def model_predict(irises: Irises):
 
-    # load row(s) passed into df
+    # load row(s) passed into a df
     row = pd.DataFrame(irises.dict()['data'])
 
-    # make prediction(s)
+    # make prediction(s) and output as json
     return json.dumps(list(rfc.predict(row)))
