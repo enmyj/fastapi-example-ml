@@ -1,4 +1,12 @@
+"""
+IRL you'd probably want to do something like the link below
+instead of the sqlite/pandas approach shown here
+
+https://fastapi.tiangolo.com/tutorial/sql-databases/
+"""
+
 # %% Imports
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
@@ -93,3 +101,10 @@ async def mtcars_post(mtcar: MtCars):
     )
 
     return 'success'
+
+
+if __name__ == "__main__":
+    # For debugging
+    # Use editor to place breakpoints then hit API
+    # using Postman, FastAPI docs, requests, curl, etc.
+    uvicorn.run(app, host="0.0.0.0", port=8000)

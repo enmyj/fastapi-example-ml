@@ -1,9 +1,11 @@
+import json
+from typing import List
+
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List
 from joblib import load
 import pandas as pd
-import json
 
 app = FastAPI()
 rfc = load('iris_rfc.joblib')  # load pickled model
@@ -30,3 +32,10 @@ async def model_predict(irises: Irises):
 
     # make prediction(s) and output as json
     return json.dumps(list(rfc.predict(row)))
+
+
+if __name__ == "__main__":
+    # For debugging
+    # Use editor to place breakpoints then hit API
+    # using Postman, FastAPI docs, requests, curl, etc.
+    uvicorn.run(app, host="0.0.0.0", port=8000)

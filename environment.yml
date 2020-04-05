@@ -12,6 +12,7 @@ dependencies:
   - keyring
   - pandas
   - python<3.8
+  - pytest
   - requests
   - scikit-learn
   - sqlalchemy
