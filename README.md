@@ -1,5 +1,5 @@
 
-# Scipaper RestAPI
+# Fast API Machine Learning Example
 ian wuz here
 
 # Overview
@@ -27,9 +27,7 @@ In the wild, Rest APIs are often used to provide people with data from a databas
 
 Rest APIs are also often used to allow people to embed access to their services into other applications. One such example is Strava (social fitness app): https://developers.strava.com/
 
-Another thing that's becoming popular is deploying ML models as Rest APIs. At ERI we typically deploy models by writing the inference results to a database with `RADR` or another BI tool pointed at it.   
-
-However, at larger companies, the ML team might create a model (e.g., marketing model) and a product team might incorporate this model into their product by hitting a Rest API for inference results. One made up example using the Instagram scrolling feed: the IG "feed" team might be sending a user's personal information at an internal Rest API and receiving back an advertisement to place into that user's feed.   
+Another thing that's becoming popular is deploying ML models as Rest APIs. At larger companies, the ML team might create a model (e.g., marketing model) and a product team might incorporate this model into their product by hitting a Rest API for inference results. One made up example using the Instagram scrolling feed: the IG "feed" team might be sending a user's personal information at an internal Rest API and receiving back an advertisement to place into that user's feed.   
 
 
 # Accessing RestAPIs
